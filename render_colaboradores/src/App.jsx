@@ -15,8 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [colaboradores, setColaboradores] = useState(BaseColaboradores);
   const [colaboradoresForList, setColaboradoresForList]=useState(BaseColaboradores);
-  const [error,setError]=useState(0);
-  const [exito,setExito]=useState(0);
+  const [error, setError]=useState(0);
+  const [exito, setExito]=useState(0);
 
   return (
     <>

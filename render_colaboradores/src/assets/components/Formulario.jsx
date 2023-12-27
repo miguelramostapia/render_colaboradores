@@ -2,13 +2,13 @@ import { useState } from 'react'
 import '../ReactCss/FormularioCss.css'
 
 
-function Formulario({setError, setExito,BaseColaboradores, setColaboradores, colaboradoresForList, setColaboradoresForList}) {
+function Formulario({setError, setExito, BaseColaboradores, setColaboradores, colaboradoresForList, setColaboradoresForList}) {
     //Estados del formulario
     const [nombre, setNombre] = useState('');
     const [email, setEmail] = useState('');
-    const [edad,setEdad] = useState(0);
+    const [edad,setEdad] = useState('');
     const [cargo,setCargo] = useState('');
-    const [telefono,setTelefono] = useState('');
+    const [telefono,setTelefono] = useState('+569 ');
  
     const handleNombreChange = (event)=>{setNombre(event.target.value);};
     const handleEmailChange = (event)=>{setEmail(event.target.value);};
@@ -25,23 +25,25 @@ function Formulario({setError, setExito,BaseColaboradores, setColaboradores, col
         const regexParalaEdad = /^([0-9])*$/ ///\b(^(durante|hace|por)\s)([0-9]{1,3}[\s]años)\b/
 
         setError(0);setExito(0);
-        if(nombre ===''|| email ==='' || edad ==='' || cargo === '' || telefono === ''){setError(1);return;}
+        if(nombre.length === 0 && email.length === 0 && edad.length === 0 && cargo.length === 0 && telefono.length === 0){return setError(1)}
 
-        if(!regexParaNombre.test(nombre)){setError(2);return;}
+        else if(!regexParaNombre.test(nombre)){return setError(2)}
 
-        if(!regexParacorreo.test(email)){setError(3);return;}
+        else if(!regexParacorreo.test(email)){return setError(3)}
 
-        if(!regexParalaEdad.test(edad)){setError(4);return;}
+        else if(!regexParalaEdad.test(edad)){return setError(4)}
 
-        if(!regexParaNombre.test(cargo)){setError(5);return;}//error para cargo codigo error 5
+        else if(!regexParaNombre.test(cargo)){return setError(5)}//error para cargo codigo error 5
 
-        if(!regexParaTelefono.test(telefono)){setError(6);return;}
-        setNombre('');setEmail('');setEdad(0);setCargo('');setTelefono('');
+        else if(!regexParaTelefono.test(telefono)){return setError(6)}
+
         setExito(1);
+
+        setNombre(''); setEmail(''); setEdad(''); setCargo(''); setTelefono('+569 ');
+
         setColaboradores([...BaseColaboradores, {nombre,email,edad,cargo,telefono}])
         setColaboradoresForList([...colaboradoresForList, {nombre,email,edad,cargo,telefono}])
-        
-        return;
+
     }
   
   return (
@@ -50,11 +52,11 @@ function Formulario({setError, setExito,BaseColaboradores, setColaboradores, col
 
         <form className='FormCss' onSubmit={validarInput}>
 
-            <input type="text" name="nombre" onChange={handleNombreChange} placeholder='Ingrese Nombre'/>
-            <input type="text" name="email" onChange={handleEmailChange} placeholder='Ingrese correo@dominio.cl'/>
-            <input type="text" name="edad" onChange={handleEdad} placeholder='Ingrese edad'/>
-            <input type="text" name="cargo" onChange={handleCargo} placeholder='Ingrese cargo' />
-            <input type="text" name="telefono" onChange={handleTelefono} placeholder='Ingrese telefono'/>
+            <input type="text" value = {nombre} name="nombre" onChange={handleNombreChange} placeholder='Ingresar Nombre'/>
+            <input type="email" value = {email} name="email" onChange={handleEmailChange} placeholder='Ingresar correo@dominio.cl'/>
+            <input type="text" value = {edad} name="edad" onChange={handleEdad} placeholder='Ingresar edad'/>
+            <input type="text" value = {cargo} name="cargo" onChange={handleCargo} placeholder='Ingresar cargo' />
+            <input type="text" value = {telefono} name="telefono" onChange={handleTelefono} placeholder='Ingresar telefono'/>
 
 
             <button type="submit">Agregar Colaborador/a</button>

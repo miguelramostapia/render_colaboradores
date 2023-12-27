@@ -1,4 +1,4 @@
-
+import '../ReactCss/BuscadorCss.css'
 import { useState } from "react";
 
 
@@ -24,14 +24,15 @@ function Buscador({BaseColaboradores, colaboradoresForList,setColaboradoresForLi
     }
 
     return (
-      <>
-            <div>
-                <input type="text" placeholder="Buscar..." value={searchValue} onChange={handleSearch}/>
-                <button>Buscar</button>
 
-            </div>
+        <div className='BuscadorContainer'>
+            <h1>Listas de Colaboradores</h1>
+            <input type="text" placeholder="Buscar..." value={searchValue} onChange={handleSearch}/>
+            <button>Buscar</button>
+
+        </div>
   
-      </>
+
     );
   };
   

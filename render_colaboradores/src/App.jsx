@@ -21,12 +21,14 @@ function App() {
   return (
     <>
 
-        <Buscador BaseColaboradores = {BaseColaboradores} colaboradoresForList = {colaboradoresForList} setColaboradoresForList = {setColaboradoresForList} />
+        <Buscador colaboradores = {colaboradores} colaboradoresForList = {colaboradoresForList} setColaboradoresForList = {setColaboradoresForList} />
 
-        <Listado colaboradoresForList={colaboradoresForList}/>
+        <Listado colaboradoresForList={colaboradoresForList} />
+
         <Formulario setError={setError} setExito={setExito}
-                      BaseColaboradores = {BaseColaboradores} setColaboradores = {setColaboradores} 
+                      colaboradores = {colaboradores} setColaboradores = {setColaboradores}
                       colaboradoresForList= {colaboradoresForList} setColaboradoresForList = {setColaboradoresForList}/>
+
         <Alerta error={error} exito={exito}/>
     </>
 

@@ -2,14 +2,19 @@ import { useState } from 'react'
 import '../ReactCss/FormularioCss.css'
 
 
-function Formulario({setError, setExito, BaseColaboradores, setColaboradores, colaboradoresForList, setColaboradoresForList}) {
+function Formulario({setError, setExito, colaboradores, setColaboradores, colaboradoresForList, setColaboradoresForList}) {
     //Estados del formulario
     const [nombre, setNombre] = useState('');
     const [email, setEmail] = useState('');
     const [edad,setEdad] = useState('');
     const [cargo,setCargo] = useState('');
     const [telefono,setTelefono] = useState('+569 ');
- 
+
+    const ultimoColaborador = colaboradoresForList[colaboradoresForList.length - 1];
+    const idUltimoColaborador = ultimoColaborador ? ultimoColaborador.id : null;
+    console.log(idUltimoColaborador)
+    console.log(colaboradoresForList)
+
     const handleNombreChange = (event)=>{setNombre(event.target.value);};
     const handleEmailChange = (event)=>{setEmail(event.target.value);};
     const handleEdad = (event)=>{setEdad(event.target.value);};
@@ -39,13 +44,29 @@ function Formulario({setError, setExito, BaseColaboradores, setColaboradores, co
 
         setExito(1);
 
-        setNombre(''); setEmail(''); setEdad(''); setCargo(''); setTelefono('+569 ');
+        const nuevoColaborador = {
+            id: idUltimoColaborador+1,
+            nombre,
+            email,
+            edad,
+            cargo,
+            telefono
+        };
 
-        setColaboradores([...BaseColaboradores, {nombre,email,edad,cargo,telefono}])
-        setColaboradoresForList([...colaboradoresForList, {nombre,email,edad,cargo,telefono}])
+        // Actualizar listas colaboradores
+        setColaboradores([...colaboradores, nuevoColaborador]);
+        setColaboradoresForList([...colaboradoresForList, nuevoColaborador]);
+        //setColaboradoresForList([...BaseColaboradores, {id:idUltimoColaborador+1, nombre,email,edad,cargo,telefono}]);
+
+        // Limpiar Formulario
+        setNombre('');
+        setEmail('');
+        setEdad('');
+        setCargo('');
+        setTelefono('+569 ');
 
     }
-  
+
   return (
     <div>
         <h2>Agregar Colaborador</h2>

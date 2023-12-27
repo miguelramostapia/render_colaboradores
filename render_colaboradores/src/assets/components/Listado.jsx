@@ -3,10 +3,14 @@ import '../ReactCss/ListadoCss.css'
 import Table from 'react-bootstrap/Table';
 
 function Listado({colaboradoresForList}){
-
+console.log(colaboradoresForList, 'listado')
 
     return (
+
+
         <div className='containerListado'>
+
+
             <Table striped bordered hover>
                <thead className='TheadCss'>
                 <tr>
@@ -18,8 +22,8 @@ function Listado({colaboradoresForList}){
                 </tr>
                 </thead>
                 <tbody className='TbodyCss'>
-                        {colaboradoresForList.map((colaborador) => (
-                        <tr key={colaborador.id}>
+                        {colaboradoresForList.map((colaborador, index) => (
+                        <tr key={index}>
                             <td>{colaborador.nombre}</td>
                             <td>{colaborador.correo}</td>
                             <td>{colaborador.edad}</td>

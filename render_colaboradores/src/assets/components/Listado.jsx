@@ -7,7 +7,7 @@ function Listado({colaboradoresForList}){
 
     return (
         <div className='containerListado'>
-            <Table variant="table-primary">
+            <Table striped bordered hover>
                <thead className='TheadCss'>
                 <tr>
                     <th>NOMBRE</th>

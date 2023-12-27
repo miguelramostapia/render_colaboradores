@@ -27,8 +27,10 @@ function Buscador({BaseColaboradores, colaboradoresForList,setColaboradoresForLi
 
         <div className='BuscadorContainer'>
             <h1>Listas de Colaboradores</h1>
-            <input type="text" placeholder="Buscar..." value={searchValue} onChange={handleSearch}/>
-            <button>Buscar</button>
+            <div className='Container2'>
+                <input type="text" placeholder="Buscar un colaborador" value={searchValue} onChange={handleSearch}/>
+                <button>Buscar</button>
+            </div>
 
         </div>
   

@@ -7,6 +7,10 @@ import Formulario from './assets/components/Formulario';
 import Alerta from './assets/components/Alerta';
 import Buscador from './assets/components/Buscador';
 
+{/*Import Bootstrap*/}
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   const [colaboradores, setColaboradores] = useState(BaseColaboradores);

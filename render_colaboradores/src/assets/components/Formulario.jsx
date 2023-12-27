@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../ReactCss/FormularioCss.css'
 
 
 function Formulario({setError, setExito,BaseColaboradores, setColaboradores, colaboradoresForList, setColaboradoresForList}) {
@@ -44,24 +45,21 @@ function Formulario({setError, setExito,BaseColaboradores, setColaboradores, col
     }
   
   return (
-    <>
-        <div className="container">
-            <div className="col-md-8">
-                <h4>Agregar Colaboradores</h4>
-            </div>
-        </div>
-        <form style={{display:"flex", flexDirection:"column"}} onSubmit={validarInput}>
+    <div>
+        <h2>Agregar Colaborador</h2>
 
-            <input type="text" name="nombre" className="form-control" onChange={handleNombreChange} placeholder='Ingrese Nombre'/>
-            <input type="text" name="email" className="form-control" onChange={handleEmailChange} placeholder='Ingrese correo@dominio.cl'/>
-            <input type="text" name="edad" className="form-control" onChange={handleEdad} placeholder='Ingrese edad'/>
-            <input type="text" name="cargo" className="form-control" onChange={handleCargo} placeholder='Ingrese cargo' />
-            <input type="text" name="telefono" className="form-control" onChange={handleTelefono} placeholder='Ingrese telefono'/>
+        <form className='FormCss' onSubmit={validarInput}>
+
+            <input type="text" name="nombre" onChange={handleNombreChange} placeholder='Ingrese Nombre'/>
+            <input type="text" name="email" onChange={handleEmailChange} placeholder='Ingrese correo@dominio.cl'/>
+            <input type="text" name="edad" onChange={handleEdad} placeholder='Ingrese edad'/>
+            <input type="text" name="cargo" onChange={handleCargo} placeholder='Ingrese cargo' />
+            <input type="text" name="telefono" onChange={handleTelefono} placeholder='Ingrese telefono'/>
 
 
-            <button type="submit" className="btn btn-primary">Agregar Colaborador/a</button>
+            <button type="submit">Agregar Colaborador/a</button>
         </form>
-    </>
+    </div>
   )
 }
 

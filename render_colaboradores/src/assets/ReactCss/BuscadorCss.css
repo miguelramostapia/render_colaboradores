@@ -1,0 +1,39 @@
+.BuscadorContainer {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+
+.BuscadorContainer h1 {
+    Font-weight:400;
+    text-align:left;
+    color:black;
+}
+
+.BuscadorContainer input {
+    width:100%;
+    height:100%;
+    border-radius:8px;
+    font-size: 1.2em;
+    background-color:white;
+    color:#11009E;
+    border: 0.1rem solid #11009E;
+}
+
+.Container2 {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+}
+
+.Container2 button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.3em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #4942E4;
+  cursor: pointer;
+}
